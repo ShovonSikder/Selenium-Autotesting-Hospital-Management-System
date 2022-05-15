@@ -1,0 +1,6 @@
+1 pt_3 None getWell t
+2 pt_0 Fever TakeRest t
+3 pt_300 None getWell f
+4 pt_38 Cancer getWell t
+5 pt_41 null null f
+6 null None GoHome f

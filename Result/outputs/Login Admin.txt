@@ -1,0 +1,6 @@
+1 passed
+2 failed expected: http://localhost/myhospital/adminlogin.php found: http://localhost/myhospital/admindashboard.php
+3 passed
+4 passed
+5 passed
+6 passed

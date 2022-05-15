@@ -1,0 +1,9 @@
+Succefully Logged in
+Succefully in doc list
+Succefully in admit info
+Succefully in bill info
+Succefully in visit info
+Succefully in patient list
+Succefully in room info
+Succefully in disease info
+Succefully in Logge out

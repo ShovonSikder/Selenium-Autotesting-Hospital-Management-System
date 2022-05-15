@@ -1,0 +1,11 @@
+Succefully Logged in
+Succefully in appoint page
+Succefully opend add visit form
+1 passed
+2 failed expected: http://localhost/myhospital/makevisitdoc.php found: http://localhost/myhospital/appointmentdoctor.php
+3 passed
+4 failed expected: http://localhost/myhospital/makevisitdoc.php found: http://localhost/myhospital/appointmentdoctor.php
+5 passed
+6 passed
+Succefully opend serve page
+Succefully Logged out

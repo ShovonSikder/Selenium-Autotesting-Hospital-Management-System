@@ -1,0 +1,6 @@
+1 //*[@id="display"]/div[1]/div[3]/a[1]/button http://localhost/myhospital/adminlogin.php
+2 //*[@id="menu"]/a/div http://localhost/myhospital/home.html
+3 //*[@id="display"]/div[1]/div[2]/a[2]/span/img http://localhost/myhospital/doctorlogin.php
+4 //*[@id="menu"]/a/div http://localhost/myhospital/home.html
+5 //*[@id="display"]/div[1]/div[3]/a[3]/button http://localhost/myhospital/patientlogin.php
+6 //*[@id="menu"]/a/div http://localhost/myhospital/home.html

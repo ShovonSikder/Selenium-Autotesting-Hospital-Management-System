@@ -1,0 +1,7 @@
+Succefully Logged in
+Succefully in appoint page
+Succefully appointment added
+Succefully appointment deleted
+Succefully in visit page
+Succefully in bills page
+Succefully logged out
