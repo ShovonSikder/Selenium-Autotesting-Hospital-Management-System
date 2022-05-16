@@ -25,7 +25,7 @@ public class HospitalTest {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(entryURL);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 	}
 
 	// simple check on buttons of home page
@@ -34,7 +34,6 @@ public class HospitalTest {
 		driver.get(SiteUrls.home);
 
 		try {
-
 			File inputFile = new File("Result\\inputs\\home.txt");
 			FileWriter outputFile = new FileWriter("Result\\outputs\\home.txt");
 
@@ -51,6 +50,8 @@ public class HospitalTest {
 				// read test cases from external sources (files)
 				String[] test = readFile.nextLine().split(" ");
 				String expectedString = test[2];
+				
+				
 				// test on test case
 				driver.findElement(By.xpath(test[1])).click();
 				String originalString = driver.getCurrentUrl();
@@ -70,7 +71,7 @@ public class HospitalTest {
 			readFile.close();
 
 		} catch (Exception e) {
-			System.err.println("Error:-> (-_-) " + e.getMessage());
+			System.err.println("Error:-> (-_-) " + e.getMessage());   
 		} finally {
 			System.out.println("Test finished. Check output files");
 		}
@@ -99,7 +100,7 @@ public class HospitalTest {
 				// read test cases from external sources (files)
 				String[] test = readFile.nextLine().split(" ");
 				String currentString = driver.findElement(By.cssSelector("input[name=pt_id")).getAttribute("value");
-
+				System.out.println("current string"+currentString);
 				// select fields
 				WebElement firstName = driver.findElement(By.cssSelector("input[name=f_name]"));
 				WebElement lastName = driver.findElement(By.cssSelector("input[name=l_name]"));
@@ -133,7 +134,17 @@ public class HospitalTest {
 					gmail.sendKeys(test[7]);
 				if (!test[8].equals("null"))
 					password.sendKeys(test[8]);
+				
+				
+				
+				//validateModule
+				VerifyData vd=new VerifyData(test);
+				String vdmessage=vd.startVerify();
+				//System.out.println(test[0]+" "+vdmessage);
+				
 
+				//takes snapshot
+				takeSnapShot(driver, "Result\\outputs\\add_New_Patientss\\ss" + test[0] + ".png");
 				driver.findElement(By.name("sbtn")).click();// submit form
 
 				String expectedOutput = test[9];
@@ -143,20 +154,23 @@ public class HospitalTest {
 				// write output to external files
 				if (!currentString.equals(originalString)) {
 
-					if (expectedOutput.equals("t"))
+					if (expectedOutput.equals("t")) {
 						outputFile.write(test[0] + " passed\n");
+						Operation operation=new Operation();
+						operation.setLocation("Result\\outputs\\add_New_Patientss\\ss" + test[0] + ".png");						
+					}
+						
 					else {
-						outputFile.write(test[0] + " failed expected: not to submit found: form submitted\n");
-						takeSnapShot(driver, "Result\\outputs\\add_New_Patientss\\ss" + test[0] + ".png");
-
+						outputFile.write(test[0] + " failed  | expected: should not submit  | found: form submitted,   |   details:"+vdmessage+"\n");
 					}
 				} else {
 					if (expectedOutput.equals("t")) {
-						outputFile.write(test[0] + " failed expected: not to submit found: form submitted\n");
-						takeSnapShot(driver, "Result\\outputs\\add_New_Patientss\\ss" + test[0] + ".png");
+						outputFile.write(test[0] + " failed  | expected: should not submit  | found: form submitted,   |   details:"+vdmessage+"\n");
+						
 					} else {
 						outputFile.write(test[0] + " passed\n");
-
+						Operation operation=new Operation();
+						operation.setLocation("Result\\outputs\\add_New_Patientss\\ss" + test[0] + ".png");
 					}
 
 				}
@@ -645,6 +659,8 @@ public class HospitalTest {
 			System.out.println("Test finished. Check output files");
 		}
 	}
+	
+
 
 	// method to clear input fields
 	private void clearInputField(WebElement... fields) {
@@ -679,5 +695,14 @@ public class HospitalTest {
 		}
 
 	}
+	
+	
+	//initiating Jira
+	public void initiateJira() throws InterruptedException {
+		JiraOperations jiraoperations=new JiraOperations(driver);
+		jiraoperations.openJira();
+	}
+	
+	
 
 }
