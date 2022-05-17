@@ -1,10 +1,17 @@
 1 passed
 2 passed
 3 passed
-4 failed expected: not to submit found: form submitted
+4 failed  | expected: should not submit  | found: form submitted,   |   details:Phone: The phone number is not a valid number. It is a string 
 5 passed
-6 failed expected: not to submit found: form submitted
-7 failed expected: not to submit found: form submitted
+6 failed  | expected: should not submit  | found: form submitted,   |   details:email: Email is not valid. It does not match email pattern 
+7 failed  | expected: should not submit  | found: form submitted,   |   details:Phone: Phone number is not 11 digit 
 8 passed
-9 failed expected: not to submit found: form submitted
+9 failed  | expected: should not submit  | found: form submitted,   |   details:
 10 passed
+11 passed
+12 failed  | expected: should not submit  | found: form submitted,   |   details:address: The name is a number 
+13 failed  | expected: should not submit  | found: form submitted,   |   details:first name: The name is a number 
+14 failed  | expected: should not submit  | found: form submitted,   |   details:last name: The name is a number 
+15 failed  | expected: should not submit  | found: form submitted,   |   details:Phone: Phone number is not 11 digit email: Email is not valid. It does not match email pattern 
+16 failed  | expected: should not submit  | found: form submitted,   |   details:Phone: The phone number is not a valid number. It is a string 
+17 passed

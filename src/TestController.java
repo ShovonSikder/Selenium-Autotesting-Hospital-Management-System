@@ -16,12 +16,12 @@ public class TestController {
 
 		initiateTestSequence();
 		
-		HospitalTest modules = new HospitalTest(SiteUrls.wellcomeScreen);
+		HospitalTest modules = new HospitalTest(SiteUrls.home);
 
-//test done    //modules.home();
-//test done   // modules.addNewPatient();
+//test done	//modules.home();
+		//modules.addNewPatient();
 		
-//test done	//modules.login(SiteUrls.loginLinksMap.get("admin"));
+//test done	// modules.login(SiteUrls.loginLinksMap.get("admin"));
 //test done	//modules.login(SiteUrls.loginLinksMap.get("doctor"));
 //test done	//modules.login(SiteUrls.loginLinksMap.get("patient"));
 		
@@ -29,9 +29,12 @@ public class TestController {
 //test done	//	modules.patient();
 //test done	//	modules.admin();
 		
+		modules.initiateJira();
 		
 		
 
+		
+		
 	}
 
 }
